@@ -1,32 +1,33 @@
 package com.midiaz;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 import com.midiaz.menu.Menu;
 
 public class Grade
 {
-    private Menu menu;
+  private Menu menu;
 
-    Grade (Menu menu)
-    {
-	this.menu = menu;
-    }
+  Grade (Menu menu)
+  {
+    this.menu = menu;
+  }
 
-    public void prompt ()
-    {
-	this.menu.prompt();
-    }
+  public void prompt ()
+  {
+    this.menu.prompt();
+  }
 
-    public static void main (String args[])
-    {
-	Grade grade = new Grade(new Menu(new Scanner(System.in)));
-	grade.prompt();
-    }
+  public static void main (String args[])
+  {
+    Grade grade = new Grade(new Menu(new Scanner(System.in), new ArrayList<Integer>()));
+    grade.prompt();
+  }
 }
 
 /*
 
-JGradeApp					April 23, 2024
+   JGradeApp					April 23, 2024
 
 source: Grade.java
 author: misael-diaz
