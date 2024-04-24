@@ -1,6 +1,7 @@
 package com.midiaz;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 import com.midiaz.menu.Menu;
 
 public class Grade
@@ -19,7 +20,7 @@ public class Grade
 
   public static void main (String args[])
   {
-    Grade grade = new Grade(new Menu(new Scanner(System.in)));
+    Grade grade = new Grade(new Menu(new Scanner(System.in), new ArrayList<Integer>()));
     grade.prompt();
   }
 }
