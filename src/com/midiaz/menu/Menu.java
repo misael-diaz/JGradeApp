@@ -21,6 +21,11 @@ public class Menu
     return this.tag;
   }
 
+  public int getNumStudents()
+  {
+    return this.numStudents;
+  }
+
   // uses recursion to prompt the user until all the courses have been graded
   public void prompt ()
   {
