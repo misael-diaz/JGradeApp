@@ -2,7 +2,11 @@ package com.midiaz;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.io.InputStream;
 import com.midiaz.menu.Menu;
+import com.midiaz.util.MathGrader;
+import com.midiaz.util.SpanishGrader;
+import com.midiaz.util.EnglishGrader;
 
 public class Grade
 {
@@ -18,10 +22,26 @@ public class Grade
     this.menu.prompt();
   }
 
+  public void grade ()
+  {
+    this.menu.grade();
+  }
+
+  public void report ()
+  {
+    this.menu.report();
+  }
+
   public static void main (String args[])
   {
-    Grade grade = new Grade(new Menu(new Scanner(System.in), new ArrayList<Integer>()));
+    InputStream in = System.in;
+    Grade grade = new Grade(new Menu(new Scanner(in), new ArrayList<Integer>(),
+			    new MathGrader(new Scanner(in), new ArrayList<Double>()),
+			    new SpanishGrader(new Scanner(in), new ArrayList<Double>()),
+			    new EnglishGrader(new Scanner(in), new ArrayList<Double>())));
     grade.prompt();
+    grade.grade();
+    grade.report();
   }
 }
 
