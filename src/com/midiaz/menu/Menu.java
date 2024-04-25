@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class Menu
 {
   private int tag = 0;				// for refering to a course with a tag
+  private int numStudents = 0;			// student count enrolled in the course
   private Scanner scan = null;			// for capturing user input
   private ArrayList<Integer> tags = null;	// for keeping track of grades courses
 
@@ -23,6 +24,10 @@ public class Menu
   // uses recursion to prompt the user until all the courses have been graded
   public void prompt ()
   {
+    if (this.numStudents == 0) {
+      this.scanNumStudents();
+    }
+
     // checks if we are done
     if (this.tags.size() == 3) {
       return;
@@ -61,6 +66,19 @@ public class Menu
     }
 
     this.prompt();
+  }
+
+  private void scanNumStudents ()
+  {
+    int numStudents = 0;
+    while (numStudents <= 0) {
+      System.out.printf("Please input the number of students:");
+      numStudents = this.scan.nextInt();
+      if (numStudents <= 0) {
+	System.out.printf("Please input a number greater than zero\n");
+      }
+    }
+    this.numStudents = numStudents;
   }
 }
 
